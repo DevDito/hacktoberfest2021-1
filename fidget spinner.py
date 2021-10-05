@@ -1,5 +1,5 @@
-from turtle import *
-state = {'turn': 0}
+# from turtle import *
+# state = {'turn': 0}
 # def spinner():
 #     clear()
 #     angle = state['turn']/10
@@ -17,37 +17,106 @@ state = {'turn': 0}
 #     back(100)
 #     right(120)
 #     update()
-def fidget():
+# def fidget():
+#     clear()
+#     angle = state['turn']/10
+#     right(angle)
+#     forward(100)
+#     dot(120, 'red')
+#     back(100)
+#     right(120)
+#     forward(100)
+#     dot(120, 'gray')
+#     back(100)
+#     right(120)
+#     forward(100)
+#     dot(120, 'violet')
+#     back(100)
+#     right(120)
+#     update()
+# def animate():
+#     if state['turn']>0:
+#         state['turn']-=1
+
+#     fidget()
+#     ontimer(animate, 20)
+# def flick():
+#     state['turn']+=10
+
+# setup(420, 420, 370, 0)
+# hideturtle()
+# tracer(False)
+# width(60)
+# onkey(flick, 'space')
+# listen()
+# animate()
+# done()
+
+from turtle import *
+  
+# initial state of spinner is null (stable)
+state= {'turn':0 }
+  
+# Draw fidget spinner
+def spin():
     clear()
+  
+    # Angle of fidget spinner
     angle = state['turn']/10
+  
+    # To rotate in clock wise we use right
+    # for Anticlockwise rotation we use left
     right(angle)
+  
+    # move the turtle forward by specified distance
     forward(100)
+  
+    # draw a dot with diameter 120 using colour red
     dot(120, 'red')
+  
+    # move the turtle backward by specified distance
     back(100)
+  
+    "second dot"
     right(120)
     forward(100)
-    dot(120, 'gray')
+    dot(120, 'blue')
     back(100)
+  
+    "third dot"
     right(120)
     forward(100)
-    dot(120, 'violet')
+    dot(120, 'green')
     back(100)
     right(120)
+  
     update()
+  
+# Animate fidget spinner
 def animate():
     if state['turn']>0:
         state['turn']-=1
-
-    fidget()
+      
+    spin()
     ontimer(animate, 20)
+      
+# Flick fidget spinner
 def flick():
-    state['turn']+=10
-
-setup(420, 420, 370, 0)
-hideturtle()
+    state['turn']+=40 #acceleration of spinner
+  
+# setup window screen
+setup(600, 400, 370, 0)
+bgcolor("black")
+  
 tracer(False)
+  
+# wing of fidget spinner
 width(60)
-onkey(flick, 'space')
+color("orange")
+  
+# keyboard key for the rotation of spinner
+onkey(flick,'space')
+  
 listen()
 animate()
 done()
